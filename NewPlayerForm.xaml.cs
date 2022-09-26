@@ -10,30 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace FIFA_Market_Tracker
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy NewPlayerForm.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewPlayerForm : Window
     {
-        public MainWindow()
+        public NewPlayerForm()
         {
             InitializeComponent();
         }
 
-        private void newDeal_Click(object sender, RoutedEventArgs e)
+        private void createPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void newPlayer_Click(object sender, RoutedEventArgs e)
-        {
-            NewPlayerForm newPlayerForm = new NewPlayerForm();
-            newPlayerForm.ShowDialog();
+            Close();
         }
     }
 }
