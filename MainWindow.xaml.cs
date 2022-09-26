@@ -24,5 +24,15 @@ namespace FIFA_Market_Tracker
         {
             InitializeComponent();
         }
+
+        private void newDeal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void newPlayer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
