@@ -9,9 +9,9 @@
     <StackPanel>
         <TextBlock Text="Add a new player: " FontWeight="Bold" FontSize="16"/>
         <Label FontSize="16">Name:</Label>
-        <TextBox FontSize="16" Margin="5">New name here...</TextBox>
+        <TextBox x:Name="name" FontSize="16" Margin="5">New name here...</TextBox>
         <Label FontSize="16">Overall:</Label>
-        <TextBox FontSize="16" Margin="5">Overal here (0-99)</TextBox>
+        <TextBox x:Name="overall" FontSize="16" Margin="5">Overal here (0-99)</TextBox>
         <Button x:Name="createPlayerButton" Margin="5" Click="createPlayerButton_Click" FontSize="16"> Submit</Button>
     </StackPanel>
 </Window>

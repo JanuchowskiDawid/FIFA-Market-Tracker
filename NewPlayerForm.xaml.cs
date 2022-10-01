@@ -26,7 +26,41 @@ namespace FIFA_Market_Tracker
 
         private void createPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            if (ValidateData())
+            {
+                GenerateNewPlayer();
+                Close();
+            }
+        }
+
+        private void GenerateNewPlayer()
+        {
+            Player player = new Player(name.Text, Int32.Parse(overall.Text));
+        }
+
+        private bool ValidateData()
+        {
+            try
+            {
+                string fullname = name.Text;
+                if (string.IsNullOrEmpty(fullname))
+                {
+                    MessageBox.Show("Enter a name");
+                    return false;
+                }
+                int ovr = Int32.Parse(overall.Text);
+                if (ovr <0 || ovr>99)
+                {
+                    MessageBox.Show("Overall out of range");
+                    return false;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Enter overall as a number");
+                return false;
+            }
+            return true;
         }
     }
 }
