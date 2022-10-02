@@ -68,6 +68,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewDealForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewPlayerForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="NewDealForm.xaml.cs">
+      <DependentUpon>NewDealForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewPlayerForm.xaml.cs">
       <DependentUpon>NewPlayerForm.xaml</DependentUpon>
     </Compile>

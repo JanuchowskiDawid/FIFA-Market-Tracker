@@ -20,6 +20,8 @@ namespace FIFA_Market_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<Player> players = new List<Player>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,13 +29,15 @@ namespace FIFA_Market_Tracker
 
         private void newDeal_Click(object sender, RoutedEventArgs e)
         {
-
+            NewDealForm newDealForm = new NewDealForm();
+            newDealForm.ShowDialog();
         }
 
         private void newPlayer_Click(object sender, RoutedEventArgs e)
         {
             NewPlayerForm newPlayerForm = new NewPlayerForm();
             newPlayerForm.ShowDialog();
+            boughtPlayers.Text = players.Count.ToString();
         }
     }
 }
