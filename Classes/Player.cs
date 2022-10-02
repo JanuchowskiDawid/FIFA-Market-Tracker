@@ -16,5 +16,14 @@ namespace FIFA_Market_Tracker
             this.fullName = fullName;
             this.overallRating = overallRating;
         }
+
+        public string Present
+        {
+            get
+            {
+                return $"{fullName}, {overallRating}";
+            }
+        }
+        
     }
 }
