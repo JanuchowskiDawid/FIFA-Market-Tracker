@@ -22,6 +22,7 @@ namespace FIFA_Market_Tracker
     {
         public static List<Player> players = new List<Player>();
         public static List<Deal> deals = new List<Deal>();
+        public static int inClub = 0;
 
         public MainWindow()
         {
@@ -32,14 +33,25 @@ namespace FIFA_Market_Tracker
         {
             NewDealForm newDealForm = new NewDealForm();
             newDealForm.ShowDialog();
-            history.Text = deals.Count.ToString();
+            UpdateDeals();
         }
 
         private void newPlayer_Click(object sender, RoutedEventArgs e)
         {
             NewPlayerForm newPlayerForm = new NewPlayerForm();
             newPlayerForm.ShowDialog();
-            boughtPlayers.Text = players.Count.ToString();
+        }
+
+        private void UpdateDeals()
+        {
+            boughtPlayersStackpanel.Children.Clear();
+            foreach(Deal deal in deals)
+            {
+                TextBlock txtblock = new TextBlock();
+                txtblock.Text = deal.Present;
+                boughtPlayersStackpanel.Children.Add(txtblock);
+            }
+            inClubBudged.Text = "In club Value: " + inClub.ToString();
         }
     }
 }

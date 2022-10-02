@@ -39,6 +39,7 @@ namespace FIFA_Market_Tracker
         private void GenerateNewDeal()
         {
             Deal deal = new Deal(Int32.Parse(value.Text), selectedPlayer);
+            MainWindow.inClub += Int32.Parse(value.Text);
             MainWindow.deals.Add(deal);
         }
 

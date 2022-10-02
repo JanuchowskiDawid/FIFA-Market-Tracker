@@ -27,5 +27,12 @@ namespace FIFA_Market_Tracker
             this.profit = soldFor - this.boughtFor;
             isSold = true;
         }
+        public string Present
+        {
+            get
+            {
+                return $"{player.Present}: {boughtFor}";
+            }
+        }
     }
 }

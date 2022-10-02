@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIFA_Market_Tracker"
-        mc:Ignorable="d"
+        mc:Ignorable="d" FontSize="24"
         Title="FUT Tracker" Height="450" Width="800">
     <DockPanel Background="Black">
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
-            <TextBlock x:Name="inClub" Foreground="White" FontSize="30" Margin="20">In club Value: 00000</TextBlock>
+            <TextBlock x:Name="inClubBudged" Foreground="White" FontSize="30" Margin="20">In club Value: 00000</TextBlock>
             <TextBlock x:Name="transferProfit" Foreground="White" FontSize="30" Margin="20">Transfer profit: 00000</TextBlock>
         </StackPanel>
         <Grid DockPanel.Dock="Top">
@@ -30,8 +30,11 @@
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="boughtPlayers" Grid.Column="0" Background="Wheat" Margin="20">Placeholder</TextBlock>
-            <TextBlock x:Name="history" Grid.Column="1" Background="Gray" Margin="20">Placeholder</TextBlock>
+            <ScrollViewer  Grid.Column="0" Background="Wheat" Margin="20">
+                <StackPanel x:Name="boughtPlayersStackpanel"/>
+            </ScrollViewer>
+            <TextBlock x:Name="boughtPlayers" Margin="20"></TextBlock>
+            <TextBlock x:Name="history" Grid.Column="1" Background="Gray" Margin="20"></TextBlock>
         </Grid>
 
     </DockPanel>
