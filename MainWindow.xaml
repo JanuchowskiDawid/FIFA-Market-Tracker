@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="boughtPlayers" Grid.Column="0" Background="Wheat" Margin="20">Placeholder</TextBlock>
-            <TextBlock Grid.Column="1" Background="Gray" Margin="20">Placeholder</TextBlock>
+            <TextBlock x:Name="history" Grid.Column="1" Background="Gray" Margin="20">Placeholder</TextBlock>
         </Grid>
 
     </DockPanel>

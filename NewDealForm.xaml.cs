@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace FIFA_Market_Tracker
 {
@@ -19,10 +20,55 @@ namespace FIFA_Market_Tracker
     /// </summary>
     public partial class NewDealForm : Window
     {
+        Player selectedPlayer = null;
         public NewDealForm()
         {
             InitializeComponent();
             playerCombo.ItemsSource = MainWindow.players;
+        }
+
+        private void createPlayerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidateData())
+            {
+                GenerateNewDeal();
+                Close();
+            }
+        }
+
+        private void GenerateNewDeal()
+        {
+            Deal deal = new Deal(Int32.Parse(value.Text), selectedPlayer);
+            MainWindow.deals.Add(deal);
+        }
+
+        private void playerCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedPlayer = (Player)playerCombo.SelectedItem;
+        }
+
+        private bool ValidateData()
+        {
+            try
+            {
+                if(selectedPlayer == null)
+                {
+                    MessageBox.Show("Choose a player");
+                    return false;
+                }
+                int val = Int32.Parse(value.Text);
+                if (val < 0)
+                {
+                    MessageBox.Show("Value must be positive");
+                    return false;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Enter overall as a number");
+                return false;
+            }
+            return true;
         }
     }
 }

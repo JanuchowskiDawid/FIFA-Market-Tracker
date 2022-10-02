@@ -21,6 +21,7 @@ namespace FIFA_Market_Tracker
     public partial class MainWindow : Window
     {
         public static List<Player> players = new List<Player>();
+        public static List<Deal> deals = new List<Deal>();
 
         public MainWindow()
         {
@@ -31,6 +32,7 @@ namespace FIFA_Market_Tracker
         {
             NewDealForm newDealForm = new NewDealForm();
             newDealForm.ShowDialog();
+            history.Text = deals.Count.ToString();
         }
 
         private void newPlayer_Click(object sender, RoutedEventArgs e)

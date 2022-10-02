@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace FIFA_Market_Tracker
 {
-    internal class Deal
+    public class Deal
     {
         private int boughtFor;
         private int soldFor;
         private Player player;
         private int profit;
-        private bool isSold = false;
+        private bool isSold;
 
         public Deal(int boughtFor, Player player)
         {
             this.boughtFor = boughtFor;
             this.player = player;
+            isSold = false;
         }
 
         public void sellPlayer(int soldFor, Player player)
