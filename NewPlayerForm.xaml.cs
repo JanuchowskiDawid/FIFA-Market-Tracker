@@ -36,6 +36,7 @@ namespace FIFA_Market_Tracker
         private void GenerateNewPlayer()
         {
             Player player = new Player(name.Text, Int32.Parse(overall.Text));
+            MainWindow.players.Add(player);
         }
 
         private bool ValidateData()

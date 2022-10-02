@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FIFA_Market_Tracker
 {
-    internal class Player
+    public class Player
     {
         private string fullName;
         private int overallRating;
