@@ -26,7 +26,14 @@ namespace FIFA_Market_Tracker
 
         public MainWindow()
         {
+            Player Lewa = new Player("Lewa", 97);
+            players.Add(Lewa);
+            Deal Deal = new Deal(7000, Lewa);
+            Deal Deal2 = new Deal(70001, Lewa);
+            deals.Add(Deal);
+            deals.Add(Deal2);
             InitializeComponent();
+            UpdateDeals();
         }
 
         private void newDeal_Click(object sender, RoutedEventArgs e)
@@ -47,11 +54,56 @@ namespace FIFA_Market_Tracker
             boughtPlayersStackpanel.Children.Clear();
             foreach(Deal deal in deals)
             {
-                TextBlock txtblock = new TextBlock();
-                txtblock.Text = deal.Present;
-                boughtPlayersStackpanel.Children.Add(txtblock);
+                if (!deal.isSold)
+                {
+                    ShowInClub(deal);
+                }
+                else
+                {
+                    ShowArchive(deal);
+                }
             }
             inClubBudged.Text = "In club Value: " + inClub.ToString();
+        }
+
+        private void ShowInClub(Deal deal)
+        {
+            StackPanel stackPanel = new StackPanel();
+            stackPanel.Orientation = Orientation.Horizontal;
+            TextBlock txtblock = new TextBlock();
+            txtblock.Text = deal.Present;
+            Button sellButton = deal.sellButton;
+            sellButton = new Button();
+            sellButton.Content = "Sell";
+            sellButton.DataContext = deal;
+            sellButton.Click += sellButton_Click;
+            stackPanel.Children.Add(txtblock);
+            stackPanel.Children.Add(sellButton);
+            boughtPlayersStackpanel.Children.Add(stackPanel);
+        }
+
+        private void ShowArchive(Deal deal)
+        {
+            StackPanel stackPanel = new StackPanel();
+            stackPanel.Orientation = Orientation.Horizontal;
+            TextBlock txtblock = new TextBlock();
+            txtblock.Text = deal.Present;
+            Button sellButton = deal.sellButton;
+            sellButton = new Button();
+            sellButton.Content = "Sell";
+            sellButton.DataContext = deal;
+            sellButton.Click += sellButton_Click;
+            stackPanel.Children.Add(txtblock);
+            stackPanel.Children.Add(sellButton);
+            boughtPlayersStackpanel.Children.Add(stackPanel);
+        }
+
+        private void sellButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            Deal deal = (Deal)btn.DataContext;
+            deal.sellPlayer(51000);
+            UpdateDeals();
         }
     }
 }

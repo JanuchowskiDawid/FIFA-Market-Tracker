@@ -33,7 +33,6 @@
             <ScrollViewer  Grid.Column="0" Background="Wheat" Margin="20">
                 <StackPanel x:Name="boughtPlayersStackpanel"/>
             </ScrollViewer>
-            <TextBlock x:Name="boughtPlayers" Margin="20"></TextBlock>
             <TextBlock x:Name="history" Grid.Column="1" Background="Gray" Margin="20"></TextBlock>
         </Grid>
 
