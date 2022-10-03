@@ -22,7 +22,7 @@ namespace FIFA_Market_Tracker
     {
         public static List<Player> players = new List<Player>();
         public static List<Deal> deals = new List<Deal>();
-        public static int inClub = 0;
+        public static int inClub = 77001;
         public static int profit = 0;
 
         public MainWindow()
@@ -104,8 +104,12 @@ namespace FIFA_Market_Tracker
         {
             Button btn = (Button)sender;
             Deal deal = (Deal)btn.DataContext;
-            deal.sellPlayer(5400);
+            SoldFor sellWindow = new SoldFor();
+            sellWindow.ShowDialog();            
+            int value = sellWindow.value;
+            deal.sellPlayer(value);
             UpdateDeals();
+           
         }
     }
 }

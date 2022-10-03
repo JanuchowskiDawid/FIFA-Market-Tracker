@@ -1,0 +1,14 @@
+﻿<Window x:Class="FIFA_Market_Tracker.SoldFor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIFA_Market_Tracker"
+        mc:Ignorable="d" FontSize="20"
+        Title="SoldFor" Height="180" Width="300">
+    <StackPanel Margin="10">
+        <Label>SoldFor:</Label>
+        <TextBox x:Name="soldFor" Margin="10,0,10,10"></TextBox>
+        <Button x:Name="submitButton" Click="submitButton_Click">Submit</Button>
+    </StackPanel>
+</Window>
