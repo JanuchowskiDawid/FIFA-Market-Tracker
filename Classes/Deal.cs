@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace FIFA_Market_Tracker
@@ -15,7 +16,7 @@ namespace FIFA_Market_Tracker
         private int profit;
         public bool isSold;
         public Button sellButton;
-
+        MainWindow mw = (MainWindow)Application.Current.MainWindow;
         public Deal(int boughtFor, Player player)
         {
             this.boughtFor = boughtFor;
@@ -26,8 +27,11 @@ namespace FIFA_Market_Tracker
         public void sellPlayer(int soldFor)
         {
             this.soldFor = soldFor;
-            this.profit = soldFor - this.boughtFor;
+            profit = soldFor - boughtFor;
             isSold = true;
+            MainWindow.inClub -= boughtFor;
+            MainWindow.profit += profit;
+            mw.UpdateBudgeds();
         }
         public string Present
         {

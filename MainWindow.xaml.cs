@@ -23,6 +23,7 @@ namespace FIFA_Market_Tracker
         public static List<Player> players = new List<Player>();
         public static List<Deal> deals = new List<Deal>();
         public static int inClub = 0;
+        public static int profit = 0;
 
         public MainWindow()
         {
@@ -52,7 +53,8 @@ namespace FIFA_Market_Tracker
         private void UpdateDeals()
         {
             boughtPlayersStackpanel.Children.Clear();
-            foreach(Deal deal in deals)
+            archivePlayersStackpanel.Children.Clear();
+            foreach (Deal deal in deals)
             {
                 if (!deal.isSold)
                 {
@@ -63,7 +65,13 @@ namespace FIFA_Market_Tracker
                     ShowArchive(deal);
                 }
             }
+            UpdateBudgeds();
+        }
+
+        public void UpdateBudgeds()
+        {
             inClubBudged.Text = "In club Value: " + inClub.ToString();
+            transferProfit.Text = "Transfer profit: " + profit.ToString();
         }
 
         private void ShowInClub(Deal deal)
@@ -88,21 +96,15 @@ namespace FIFA_Market_Tracker
             stackPanel.Orientation = Orientation.Horizontal;
             TextBlock txtblock = new TextBlock();
             txtblock.Text = deal.Present;
-            Button sellButton = deal.sellButton;
-            sellButton = new Button();
-            sellButton.Content = "Sell";
-            sellButton.DataContext = deal;
-            sellButton.Click += sellButton_Click;
             stackPanel.Children.Add(txtblock);
-            stackPanel.Children.Add(sellButton);
-            boughtPlayersStackpanel.Children.Add(stackPanel);
+            archivePlayersStackpanel.Children.Add(stackPanel);
         }
 
         private void sellButton_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
             Deal deal = (Deal)btn.DataContext;
-            deal.sellPlayer(51000);
+            deal.sellPlayer(5400);
             UpdateDeals();
         }
     }
