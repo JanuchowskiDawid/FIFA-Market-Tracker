@@ -21,7 +21,7 @@ namespace FIFA_Market_Tracker
         {
             get
             {
-                return $"{fullName}, {overallRating}";
+                return $"{fullName},{overallRating}";
             }
         }
         

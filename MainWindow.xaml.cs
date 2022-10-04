@@ -26,6 +26,7 @@ namespace FIFA_Market_Tracker
         {
             InitializeComponent();
             UpdateDeals();
+            FileManager.ReadFile();
         }
 
         private void newDeal_Click(object sender, RoutedEventArgs e)
