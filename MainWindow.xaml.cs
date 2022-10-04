@@ -15,24 +15,15 @@ using System.Windows.Shapes;
 
 namespace FIFA_Market_Tracker
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public static List<Player> players = new List<Player>();
         public static List<Deal> deals = new List<Deal>();
-        public static int inClub = 77001;
+        public static int inClub = 0;
         public static int profit = 0;
 
         public MainWindow()
         {
-            Player Lewa = new Player("Lewa", 97);
-            players.Add(Lewa);
-            Deal Deal = new Deal(7000, Lewa);
-            Deal Deal2 = new Deal(70001, Lewa);
-            deals.Add(Deal);
-            deals.Add(Deal2);
             InitializeComponent();
             UpdateDeals();
         }
@@ -95,7 +86,7 @@ namespace FIFA_Market_Tracker
             StackPanel stackPanel = new StackPanel();
             stackPanel.Orientation = Orientation.Horizontal;
             TextBlock txtblock = new TextBlock();
-            txtblock.Text = deal.Present;
+            txtblock.Text = deal.PresentArchive;
             stackPanel.Children.Add(txtblock);
             archivePlayersStackpanel.Children.Add(stackPanel);
         }

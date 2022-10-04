@@ -27,7 +27,7 @@ namespace FIFA_Market_Tracker
         public void sellPlayer(int soldFor)
         {
             this.soldFor = soldFor;
-            profit = soldFor - boughtFor;
+            profit = (Int32)(soldFor*0.95) - boughtFor;
             isSold = true;
             MainWindow.inClub -= boughtFor;
             MainWindow.profit += profit;
@@ -38,6 +38,13 @@ namespace FIFA_Market_Tracker
             get
             {
                 return $"{player.Present}: {boughtFor}";
+            }
+        }
+        public string PresentArchive
+        {
+            get
+            {
+                return $"{player.Present}: B:{boughtFor} S:{soldFor} P:{profit}";
             }
         }
     }
