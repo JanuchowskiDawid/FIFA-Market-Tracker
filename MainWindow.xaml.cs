@@ -28,8 +28,9 @@ namespace FIFA_Market_Tracker
             InitializeComponent();
             UpdateDeals();
             FileManager.ReadFile();
-            this.Closing += SaveData();
         }
+
+
 
         private void newDeal_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +43,7 @@ namespace FIFA_Market_Tracker
         {
             NewPlayerForm newPlayerForm = new NewPlayerForm();
             newPlayerForm.ShowDialog();
+            FileManager.SavePlayers();
         }
 
         private void UpdateDeals()
@@ -60,6 +62,7 @@ namespace FIFA_Market_Tracker
                 }
             }
             UpdateBudgeds();
+            FileManager.SaveDeals();
         }
 
         public void UpdateBudgeds()
@@ -103,14 +106,7 @@ namespace FIFA_Market_Tracker
             int value = sellWindow.value;
             deal.sellPlayer(value);
             UpdateDeals();
-           
-        }
-
-        private CancelEventHandler SaveData()
-        {
-            FileManager.SavePlayers();
             FileManager.SaveDeals();
-            return null;
         }
     }
 }
