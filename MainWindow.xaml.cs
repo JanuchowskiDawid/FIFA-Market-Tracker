@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace FIFA_Market_Tracker
             InitializeComponent();
             UpdateDeals();
             FileManager.ReadFile();
+            this.Closing += SaveData();
         }
 
         private void newDeal_Click(object sender, RoutedEventArgs e)
@@ -102,6 +104,13 @@ namespace FIFA_Market_Tracker
             deal.sellPlayer(value);
             UpdateDeals();
            
+        }
+
+        private CancelEventHandler SaveData()
+        {
+            FileManager.SavePlayers();
+            FileManager.SaveDeals();
+            return null;
         }
     }
 }

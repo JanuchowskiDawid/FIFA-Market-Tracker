@@ -13,15 +13,14 @@ namespace FIFA_Market_Tracker
         private int boughtFor;
         private int soldFor;
         public Player player;
-        private int profit;
-        public bool isSold;
+        private int profit = 0;
+        public bool isSold = false;
         public Button sellButton;
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         public Deal(int boughtFor, Player player)
         {
             this.boughtFor = boughtFor;
             this.player = player;
-            isSold = false;
         }
 
         public void sellPlayer(int soldFor)
@@ -45,6 +44,14 @@ namespace FIFA_Market_Tracker
             get
             {
                 return $"{player.Present}: B:{boughtFor} S:{soldFor} P:{profit}";
+            }
+        }
+
+        public string SaveString
+        {
+            get
+            {
+                return $"{player.Present},{boughtFor},{isSold},{soldFor},{profit}";
             }
         }
     }

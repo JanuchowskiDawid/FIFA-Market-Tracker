@@ -14,7 +14,7 @@ namespace FIFA_Market_Tracker
 
         public static void ReadFile()
         {
-            string filepath = @"D:\Data.txt";
+            string filepath = @"Players.txt";
             
             List<string> lines = File.ReadAllLines(filepath).ToList();
             
@@ -24,14 +24,31 @@ namespace FIFA_Market_Tracker
                 Player player = new Player(entries[0], Int32.Parse(entries[1]));
                 MainWindow.players.Add(player);
             }
+        }
 
-            MainWindow.players.Add(new Player("Mbappe", 92));
+        public static void SavePlayers()
+        {
+            string filepath = @"Players.txt";
 
             List<string> output = new List<string>();
 
             foreach (Player player in MainWindow.players)
             {
                 output.Add(player.Present);
+            }
+
+            File.WriteAllLines(filepath, output);
+        }
+
+        public static void SaveDeals()
+        {
+            string filepath = @"Deals.txt";
+
+            List<string> output = new List<string>();
+
+            foreach(Deal deal in MainWindow.deals)
+            {
+                output.Add(deal.SaveString);
             }
 
             File.WriteAllLines(filepath, output);
