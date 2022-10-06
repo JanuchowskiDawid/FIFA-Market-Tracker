@@ -26,8 +26,9 @@ namespace FIFA_Market_Tracker
         public MainWindow()
         {
             InitializeComponent();
+            FileManager.ReadPlayers();
+            FileManager.ReadDeals();
             UpdateDeals();
-            FileManager.ReadFile();
         }
 
 
@@ -102,11 +103,16 @@ namespace FIFA_Market_Tracker
             Button btn = (Button)sender;
             Deal deal = (Deal)btn.DataContext;
             SoldFor sellWindow = new SoldFor();
-            sellWindow.ShowDialog();            
-            int value = sellWindow.value;
-            deal.sellPlayer(value);
-            UpdateDeals();
-            FileManager.SaveDeals();
+            try
+            {
+                sellWindow.ShowDialog();
+                int value = sellWindow.value;
+                deal.sellPlayer(value);
+                UpdateDeals();
+                FileManager.SaveDeals();
+            }
+            catch
+            {}
         }
     }
 }

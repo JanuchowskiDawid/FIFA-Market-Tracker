@@ -23,6 +23,15 @@ namespace FIFA_Market_Tracker
             this.player = player;
         }
 
+        public Deal(int boughtFor, Player player, int soldFor, int profit)
+        {
+            this.boughtFor = boughtFor;
+            this.player = player;
+            isSold = true;
+            this.profit = profit;
+            this.soldFor = soldFor;
+        }
+
         public void sellPlayer(int soldFor)
         {
             this.soldFor = soldFor;

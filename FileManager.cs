@@ -12,7 +12,7 @@ namespace FIFA_Market_Tracker
     public static class FileManager
     {
 
-        public static void ReadFile()
+        public static void ReadPlayers()
         {
             string filepath = @"Players.txt";
             
@@ -23,6 +23,29 @@ namespace FIFA_Market_Tracker
                 string[] entries = line.Split(',');
                 Player player = new Player(entries[0], Int32.Parse(entries[1]));
                 MainWindow.players.Add(player);
+            }
+        }
+
+        public static void ReadDeals()
+        {
+            string filepath = @"Deals.txt";
+
+            List<string> lines = File.ReadAllLines(filepath).ToList();
+
+            foreach (string line in lines)
+            {
+                string[] entries = line.Split(',');
+                Player player = new Player(entries[0], Int32.Parse(entries[1]));
+                if (!Boolean.Parse(entries[3]))
+                {
+                    Deal deal = new Deal(Int32.Parse(entries[2]),player);
+                    MainWindow.deals.Add(deal);
+                }
+                else
+                {
+                    Deal deal = new Deal(Int32.Parse(entries[2]), player, Int32.Parse(entries[4]), Int32.Parse(entries[5]));
+                    MainWindow.deals.Add(deal);
+                }
             }
         }
 
