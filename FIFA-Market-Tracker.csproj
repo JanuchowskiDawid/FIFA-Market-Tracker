@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="SoldFor.xaml">
+    <Page Include="AddinationalWindows\SoldFor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,7 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FileManager.cs" />
-    <Compile Include="SoldFor.xaml.cs">
+    <Compile Include="AddinationalWindows\SoldFor.xaml.cs">
       <DependentUpon>SoldFor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Deal.cs" />
@@ -76,21 +76,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewDealForm.xaml">
+    <Page Include="AddinationalWindows\NewDealForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewPlayerForm.xaml">
+    <Page Include="AddinationalWindows\NewPlayerForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Player.cs" />
-    <Compile Include="NewDealForm.xaml.cs">
+    <Compile Include="AddinationalWindows\NewDealForm.xaml.cs">
       <DependentUpon>NewDealForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewPlayerForm.xaml.cs">
+    <Compile Include="AddinationalWindows\NewPlayerForm.xaml.cs">
       <DependentUpon>NewPlayerForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
