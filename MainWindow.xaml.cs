@@ -20,8 +20,9 @@ namespace FIFA_Market_Tracker
     {
         public static List<Player> players = new List<Player>();
         public static List<Deal> deals = new List<Deal>();
-        public static int inClub = 0;
-        public static int profit = 0;
+        public static int inClub = FileManager.ReadBudgeds()[0];
+        public static int profit = FileManager.ReadBudgeds()[1];
+
 
         public MainWindow()
         {
@@ -29,6 +30,7 @@ namespace FIFA_Market_Tracker
             FileManager.ReadPlayers();
             FileManager.ReadDeals();
             UpdateDeals();
+            UpdateBudgeds();
         }
 
 
@@ -70,6 +72,7 @@ namespace FIFA_Market_Tracker
         {
             inClubBudged.Text = "In club Value: " + inClub.ToString();
             transferProfit.Text = "Transfer profit: " + profit.ToString();
+            FileManager.SaveBudgeds();
         }
 
         private void ShowInClub(Deal deal)

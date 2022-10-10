@@ -26,6 +26,20 @@ namespace FIFA_Market_Tracker
             }
         }
 
+        public static List<int> ReadBudgeds()
+        {
+            List<int> budgeds = new List<int>();
+            string filepath = @"Budgeds.txt";
+
+            List<string> lines = File.ReadAllLines(filepath).ToList();
+
+            foreach (string line in lines)
+            {
+                budgeds.Add(int.Parse(line));
+            }
+            return budgeds;
+        }
+
         public static void ReadDeals()
         {
             string filepath = @"Deals.txt";
@@ -76,5 +90,18 @@ namespace FIFA_Market_Tracker
 
             File.WriteAllLines(filepath, output);
         }
+
+        public static void SaveBudgeds()
+        {
+            string filepath = @"Budgeds.txt";
+
+            List<string> output = new List<string>();
+
+            output.Add(MainWindow.inClub.ToString());
+            output.Add(MainWindow.profit.ToString());
+
+            File.WriteAllLines(filepath, output);
+        }
+
     }
 }
